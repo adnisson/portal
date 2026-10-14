@@ -6,486 +6,90 @@
 
 <title>Formulário</title>
 
-<style>
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-image: url('escoladegenios.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    font-family: Arial, sans-serif;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    min-height: 100vh;
-}
-
-#paginaEscolha,
-#paginaProfessor,
-#paginaFormulario{
-    width: 100%;
-}
-
-.form-actions{ display:flex; 
-    gap:12px; 
-    margin-top:10px; 
-} 
-.form-actions button{ 
-    min-width:120px;
-    padding:10px;}
-
-form{
-    display: flex;
-    flex-direction: column;
-
-    max-width: 400px;
-
-    margin: auto;
-
-    padding: 20px;
-
-    border-radius: 12px;
-
-    background-color: rgba(255,255,255,0.95);
-
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-
-label{
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input,
-textarea{
-    width: 100%;
-
-    padding: 10px;
-
-    margin-bottom: 15px;
-
-    border: 1px solid #ccc;
-
-    border-radius: 6px;
-}
-
-button{
-    background-color: purple;
-
-    color: white;
-
-    border: none;
-
-    padding: 12px;
-
-    border-radius: 8px;
-
-    cursor: pointer;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    transition: 0.3s;
-}
-
-button:hover{
-    background-color: green;
-}
-
-footer{
-    text-align: center;
-    margin-top: 20px;
-    color: white;
-}
-
-#paginaPortal{
-    width: 100%;
-
-    min-height: 100vh;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 30px;
-
-    background: #f4f4f7;
-}
-
-.caixa{
-    background-color: white;
-
-    width: 95%;
-
-    max-width: 1600px;
-
-    min-height: 850px;
-
-    padding: 40px;
-
-    border-radius: 30px;
-
-    box-shadow: 0 0 30px rgba(0,0,0,0.08);
-
-}
-    .caixa {
-  /* ...existing rules... */
-  max-height: calc(100vh - 80px);
-  overflow: auto;
-
-}
-
-
-
-hr{
-    border: none;
-
-    height: 2px;
-
-    background: #d6b3ff;
-
-    margin-bottom: 40px;
-}
-
-.caixa h1{
-    color: purple;
-    margin-bottom: 15px;
-    
-}
-.caixa h1,
-.caixa p{
-    text-align: center;
-    
-}
-
-table{
-    width: 100%;
-
-    border-collapse: collapse;
-
-    margin-top: 25px;
-
-    background-color: white;
-
-    border: 3px solid #444;
-}
-
-th, td{
-    border: 2px solid #555;
-
-    padding: 18px;
-
-    text-align: center;
-
-    font-size: 15px;
-}
-
-th{
-    background-color: purple;
-    color: white;
-}
-
-tr:nth-child(even){
-    background-color: #f9f9f9;
-}
-
-tbody tr:hover{
-    background-color: #ddd;
-
-    transition: 0.3s;
-}
-
-td strong{
-    font-size: 16px;
-
-    color: #222;
-}
-
-#paginaPortal{
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100vh;
-    padding: 30px;
-
-    justify-content: center;
-    align-items: center;
-
-    background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('escola.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    z-index: 999;
-}
-
-
-#painelNotas{
-    margin-top: 25px;
-
-    display: flex;
-
-    gap: 15px;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-}
-
-#painelNotas select,
-#painelNotas input{
-    padding: 12px;
-
-    border-radius: 8px;
-
-    border: 2px solid #666;
-
-    font-size: 15px;
-}
-
-#painelNotas button{
-    background-color: purple;
-}
-
-#painelNotas button:hover{
-    background-color: green;
-}
-.conteudoPortal{
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: flex-start;
-
-    gap: 80px;
-
-    width: 100%;
-}
-
-.areaBoletim{
-    flex: 1;
-}
-
-.ladoLogo{
-    width: 420px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-top: 48px;
-}
-
-.calendarioPresenca{
-    width: 100%;
-    max-width: 380px;
-    background-color: white;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.12);
-}
-
-.calHeader{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
-.calHeader h3{
-    color: purple;
-    font-size: 17px;
-}
-
-.calHeader button{
-    padding: 4px 12px;
-    font-size: 20px;
-    line-height: 1;
-}
-
-.calSemana,
-.calGrade{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
-}
-
-.calSemana{
-    margin-bottom: 6px;
-    text-align: center;
-    font-size: 12px;
-    font-weight: bold;
-    color: #666;
-}
-
-.calDia{
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    font-size: 14px;
-    background-color: #f1f1f1;
-    cursor: pointer;
-    user-select: none;
-    transition: 0.2s;
-}
-
-.calDia:hover{ background-color: #ddd; }
-
-.calDia.vazio{ background: transparent; cursor: default; }
-.calDia.bloqueado{ background-color: #fafafa; color: #bbb; cursor: not-allowed; }
-.calDia.presente{ background-color: #2e9e4f; color: white; font-weight: bold; }
-.calDia.falta{ background-color: #d93636; color: white; font-weight: bold; }
-.calDia.hoje{ outline: 2px solid purple; }
-
-.calLegenda{
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 14px;
-    font-size: 13px;
-}
-
-.calLegenda span::before{
-    content: '';
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 3px;
-    margin-right: 6px;
-    vertical-align: middle;
-}
-
-.legPresente::before{ background: #2e9e4f; }
-.legFalta::before{ background: #d93636; }
-
-.calDica{
-    margin-top: 10px;
-    font-size: 12px;
-    color: #777;
-    text-align: center;
-}
-
-
-.ladoLogo img{
-    width: 100%;
-
-    max-width: 380px;
-
-    border-radius: 30px;
-
-    background-color: white;
-
-    padding: 25px;
-
-    box-shadow: 0 0 30px rgba(0,0,0,0.12);
-}
-
-.areaBoletim{
-    flex: 1;
-}
-.cartaoAluno{
-    width: 100%;
-    max-width: 380px;
-    background-color: white;
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.12);
-}
-
-.cartaoAluno h3{
-    color: purple;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.caixa .cartaoAluno p{
-    text-align: left;
-    font-size: 16px;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #eee;
-    word-break: break-word;
-}
-
-.cartaoEscolha{
-    max-width: 400px;
-    margin: auto;
-    padding: 30px 20px;
-    border-radius: 12px;
-    background-color: rgba(255,255,255,0.95);
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    text-align: center;
-}
-
-.cartaoEscolha h1{
-    color: purple;
-    font-size: 24px;
-    margin-bottom: 8px;
-}
-
-.cartaoEscolha p{
-    margin-bottom: 20px;
-    color: #444;
-}
-
-.escolhaBotoes{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.btnVoltar{
-    background-color: #777;
-    margin-top: 10px;
-}
-
-.btnVoltar:hover{
-    background-color: #555;
-}
-
-#infoPerfil{
-    color: #555;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.calGrade.leitura .calDia{
-    pointer-events: none;
-}
-
-</style>
 </head>
+
+<link rel="stylesheet" href="estilo.css">
 
 <body>
 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instituto Alan Costa</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<!-- ============ 1) PAINEL INICIAL ============ -->
 <div id="paginaEscolha">
-  <div class="cartaoEscolha">
-    <h1>Instituto Alan Costa</h1>
-    <p>Como você deseja entrar?</p>
-    <div class="escolhaBotoes">
-      <button type="button" id="btnSouProfessor">Sou Professor</button>
-      <button type="button" id="btnSouAluno">Sou Aluno</button>
+
+  <header class="topo">
+    <nav class="topoAcessos">
+      <button type="button" id="btnSouAluno" class="btnAcesso btnAcessoAluno">Acesso Aluno</button>
+      <button type="button" id="btnSouProfessor" class="btnAcesso">Acesso Professor</button>
+    </nav>
+
+    <div class="topoMarca">
+      <strong>Instituto Alan Costa</strong>
+      <span>Educar · Formar · Transformar</span>
     </div>
-  </div>
+  </header>
+
+  <section class="hero">
+    <div class="heroTexto">
+      <span class="selo">Desde 2024</span>
+      <h1>Conhecimento, disciplina e <em>futuro</em>.</h1>
+      <p>Bem-vindo ao portal do Instituto Alan Costa. Acompanhe notas, frequência e informações escolares em um só lugar.</p>
+    </div>
+
+    <div class="heroBloco">
+      <div class="stat"><strong>2024</strong><span>Ano de fundação</span></div>
+      <div class="stat"><strong>11</strong><span>Disciplinas</span></div>
+      <div class="stat"><strong>4</strong><span>Bimestres</span></div>
+      <div class="stat"><strong>75%</strong><span>Frequência mínima</span></div>
+    </div>
+  </section>
+
+  <section class="infoSecao">
+    <h2>Informações da escola</h2>
+
+    <div class="infoGrade">
+      <article class="infoCard">
+        <h3>Nossa missão</h3>
+        <p>Educar, formar e transformar, com foco em conhecimento, disciplina e preparo para o futuro de cada aluno.</p>
+      </article>
+
+      <article class="infoCard">
+        <h3>Horário de funcionamento</h3>
+        <p>Segunda a sexta<br>7h às 12h</p>
+      </article>
+
+      <article class="infoCard">
+        <h3>Contato</h3>
+        <p>(00) 0000-0000<br>contato@exemplo.com.br</p>
+      </article>
+
+      <article class="infoCard">
+        <h3>Portal do aluno</h3>
+        <p>Consulte notas, situação por disciplina e a frequência no calendário de presença.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="rodape">
+    <p>&copy; Instituto Alan Costa &middot; adeeniii</p>
+  </footer>
+
 </div>
 
+
+<!-- ============ 2) LOGIN / CADASTRO DO PROFESSOR ============ -->
 <div id="paginaProfessor" style="display: none;">
   <form id="formProfessor">
+    <h2 class="tituloForm">Acesso do Professor</h2>
+
     <label for="profEmail">Email</label>
     <input id="profEmail" type="email" required />
 
@@ -500,8 +104,12 @@ td strong{
   </form>
 </div>
 
+
+<!-- ============ 3) LOGIN / CADASTRO DO ALUNO ============ -->
 <div id="paginaFormulario" style="display: none;">
   <form id="meuFormulario">
+    <h2 class="tituloForm">Acesso do Aluno</h2>
+
     <label for="nome">Nome completo</label>
     <input id="nome" type="text" required />
 
@@ -523,13 +131,12 @@ td strong{
     </div>
     <button type="button" class="btnVoltar">Voltar</button>
   </form>
-
-  <footer>
-    <p>&copy; adeeniii</p>
-  </footer>
 </div>
 
+
+<!-- ============ 4) PORTAL (BOLETIM + DADOS + CALENDÁRIO) ============ -->
 <div id="paginaPortal" style="display: none;">
+
   <div class="caixa">
 
     <h1>Portal Escolar: Instituto Alan Costa</h1>
@@ -599,517 +206,10 @@ td strong{
     </div>
 
   </div>
+
 </div>
 
-<script>
-
-// ===============================
-// ESTADO / DADOS
-// ===============================
-let senhaSalva = localStorage.getItem('senhaPortal'); // HASH da senha do aluno
-
-// se existir uma senha antiga (texto puro, de versões anteriores do script),
-// ela nunca bate com o hash novo: descarta e força um novo cadastro
-if(senhaSalva && window.crypto && crypto.subtle && !/^[a-f0-9]{64}$/.test(senhaSalva)){
-  localStorage.removeItem('senhaPortal');
-  senhaSalva = null;
-}
-
-// quem está usando o portal agora: 'professor' | 'aluno' | null
-let perfil = null;
-
-// código que o professor precisa digitar para se cadastrar ('' = não pede código)
-const CODIGO_PROFESSOR = 'professor2026';
-
-// false = só o professor edita as notas | true = o aluno também pode editar
-const ALUNO_PODE_EDITAR_NOTAS = false;
-
-const materias = [
-  "Português","Matemática","História","Geografia","Biologia",
-  "Física","Química","Sociologia","Filosofia","Inglês","Educação Física"
-];
-
-const notas = {};
-const notasFinais = {};
-materias.forEach(m => { notas[m] = [0,0,0,0]; notasFinais[m] = 0; });
-
-// ===============================
-// UTILITÁRIOS
-// ===============================
-
-// lê / grava JSON no localStorage sem quebrar se o navegador bloquear
-function lerJSON(chave, padrao){
-  try{
-    const v = JSON.parse(localStorage.getItem(chave));
-    return v == null ? padrao : v;
-  }catch(e){ return padrao; }
-}
-
-function salvarJSON(chave, valor){
-  try{ localStorage.setItem(chave, JSON.stringify(valor)); }catch(e){ /* sem storage */ }
-}
-
-// gera hash SHA-256 da senha (não guarda a senha em texto puro)
-async function hashSenha(texto){
-  if(!window.crypto || !crypto.subtle) return texto; // fallback
-  const buf = new TextEncoder().encode(texto);
-  const hash = await crypto.subtle.digest('SHA-256', buf);
-  return Array.from(new Uint8Array(hash))
-    .map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
-// seleciona todo o conteúdo da célula: o que for digitado substitui o valor atual
-function selecionarConteudo(el){
-  if(!el) return;
-  el.focus();
-  try{
-    const range = document.createRange();
-    range.selectNodeContents(el);
-    const sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-  }catch(e){ /* fallback silencioso */ }
-}
-
-// navegação Enter entre células editáveis
-function moverProximaCelula(event, elemento){
-  if(event.key === 'Enter'){
-    event.preventDefault();
-    const td = (elemento && elemento.tagName === 'TD')
-      ? elemento
-      : (elemento && elemento.closest ? elemento.closest('td') : null);
-    if(!td) return;
-    const celulas = Array.from(document.querySelectorAll('#boletim td[contenteditable]'));
-    const idx = celulas.indexOf(td);
-    if(idx >= 0 && idx < celulas.length - 1){
-      const prox = celulas[idx + 1];
-      setTimeout(() => selecionarConteudo(prox), 0);
-    } else {
-      td.blur(); // última célula: só confirma o valor
-    }
-  }
-}
-
-// controla qual "tela" aparece: paginaEscolha | paginaProfessor | paginaFormulario | paginaPortal
-function mostrarPagina(id){
-  ['paginaEscolha', 'paginaProfessor', 'paginaFormulario'].forEach(p => {
-    const el = document.getElementById(p);
-    if(el) el.style.display = (p === id) ? 'block' : 'none';
-  });
-  const portal = document.getElementById('paginaPortal');
-  if(portal) portal.style.display = (id === 'paginaPortal') ? 'flex' : 'none';
-}
-
-// ===============================
-// DADOS DO ALUNO (cartão)
-// ===============================
-function lerPerfilAluno(){
-  return lerJSON('alunoPortal', null);
-}
-
-function atualizarCabecalho(){
-  const aluno = lerPerfilAluno() || {};
-  const semAluno = perfil === 'professor' ? 'Nenhum aluno cadastrado' : '-';
-  const dados = {
-    alunoNome: aluno.nome || semAluno,
-    alunoSerie: aluno.serie || '-',
-    alunoEmail: aluno.email || '-',
-    alunoMatricula: aluno.matricula || '-'
-  };
-
-  Object.keys(dados).forEach(id => {
-    const el = document.getElementById(id);
-    if(el) el.innerText = dados[id];
-  });
-}
-
-// ===============================
-// NOTAS (salvas no navegador)
-// ===============================
-function salvarNotas(){
-  salvarJSON('notasPortal', { notas, notasFinais });
-}
-
-(function carregarNotasSalvas(){
-  const salvo = lerJSON('notasPortal', null);
-  if(!salvo) return;
-  materias.forEach(m => {
-    const lista = salvo.notas && salvo.notas[m];
-    if(Array.isArray(lista) && lista.length === 4){
-      notas[m] = lista.map(n => Number(n) || 0);
-    }
-    if(salvo.notasFinais){
-      notasFinais[m] = Number(salvo.notasFinais[m]) || 0;
-    }
-  });
-})();
-
-// ===============================
-// BOLETIM
-// ===============================
-const celulasLinha = {}; // guarda média/situação de cada matéria para atualizar sem recriar a tabela
-
-function calcularLinha(materia){
-  const soma = notas[materia].reduce((a,b) => a + Number(b || 0), 0);
-  const media = soma / 4;
-  const final = Number(notasFinais[materia] || 0);
-
-  let situacao = '';
-  if(media >= 6) situacao = 'Aprovado';
-  else if(final > 0){
-    const mediaFinal = (media + final) / 2;
-    situacao = mediaFinal >= 5 ? 'Aprovado na Final' : 'Reprovado';
-  } else situacao = 'Recuperação';
-
-  return { media, final, situacao };
-}
-
-function atualizarLinha(materia){
-  const c = celulasLinha[materia];
-  if(!c) return;
-  const r = calcularLinha(materia);
-  c.media.innerText = r.media.toFixed(1);
-  c.situacao.innerText = r.situacao;
-}
-
-function carregarBoletim(){
-  atualizarCabecalho();
-  const boletim = document.getElementById('boletim');
-  if(!boletim) return;
-  boletim.innerHTML = '';
-
-  const podeEditar = perfil === 'professor' || ALUNO_PODE_EDITAR_NOTAS;
-
-  materias.forEach(materia => {
-    const r = calcularLinha(materia);
-    const tr = document.createElement('tr');
-
-    const tdMat = document.createElement('td');
-    tdMat.innerHTML = '<strong>' + materia + '</strong>';
-    tr.appendChild(tdMat);
-
-    for(let b = 0; b < 4; b++){
-      const td = document.createElement('td');
-      td.innerText = notas[materia][b] != null ? notas[materia][b] : '';
-      if(podeEditar){
-        td.contentEditable = true;
-        td.onblur = function(){ editarNota(materia, b, this); };
-        td.onkeydown = function(e){ moverProximaCelula(e, this); };
-        td.onfocus = function(){ const el = this; setTimeout(() => selecionarConteudo(el), 0); };
-      }
-      tr.appendChild(td);
-    }
-
-    const tdMed = document.createElement('td');
-    tdMed.innerText = r.media.toFixed(1);
-    tr.appendChild(tdMed);
-
-    const tdFinal = document.createElement('td');
-    tdFinal.innerText = r.final ? r.final : '';
-    if(podeEditar){
-      tdFinal.contentEditable = true;
-      tdFinal.onblur = function(){ editarFinal(materia, this); };
-      tdFinal.onkeydown = function(e){ moverProximaCelula(e, this); };
-      tdFinal.onfocus = function(){ const el = this; setTimeout(() => selecionarConteudo(el), 0); };
-    }
-    tr.appendChild(tdFinal);
-
-    const tdSit = document.createElement('td');
-    tdSit.innerText = r.situacao;
-    tr.appendChild(tdSit);
-
-    celulasLinha[materia] = { media: tdMed, situacao: tdSit };
-    boletim.appendChild(tr);
-  });
-}
-
-// converte o texto digitado em nota de 0 a 10
-function normalizarNota(texto){
-  let n = parseFloat((texto || '').toString().trim().replace(',', '.'));
-  if(isNaN(n)) n = 0;
-  return Math.max(0, Math.min(10, n));
-}
-
-// valida e salva nota bimestral (atualiza só a linha, sem recriar a tabela)
-function editarNota(materia, bimestre, td){
-  const nota = normalizarNota(td.innerText);
-  notas[materia][bimestre] = nota;
-  td.innerText = nota;
-  salvarNotas();
-  atualizarLinha(materia);
-}
-
-// valida e salva prova final
-function editarFinal(materia, td){
-  const nf = normalizarNota(td.innerText);
-  notasFinais[materia] = nf;
-  td.innerText = nf ? nf : '';
-  salvarNotas();
-  atualizarLinha(materia);
-}
-
-// ===============================
-// FREQUÊNCIA / CALENDÁRIO
-// ===============================
-const BLOQUEAR_FUTURO = true; // true = não deixa marcar presença em dias que ainda não chegaram
-const nomesMeses = [
-  "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
-  "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"
-];
-
-// presencas: { '2026-10-08': 'P' (presente) ou 'F' (falta) }
-let presencas = lerJSON('presencaPortal', {});
-
-let calAno = new Date().getFullYear();
-let calMes = new Date().getMonth();
-
-function chaveData(ano, mes, dia){
-  return ano + '-' + String(mes + 1).padStart(2, '0') + '-' + String(dia).padStart(2, '0');
-}
-
-function salvarPresencas(){
-  salvarJSON('presencaPortal', presencas);
-}
-
-function calcularFrequencia(){
-  const valores = Object.values(presencas);
-  const presentes = valores.filter(v => v === 'P').length;
-  const faltas = valores.filter(v => v === 'F').length;
-  const total = presentes + faltas;
-  return { presentes, faltas, total, percentual: total ? (presentes / total) * 100 : null };
-}
-
-// mostra a porcentagem no cartão "Dados do aluno"
-function atualizarFrequencia(){
-  const el = document.getElementById('alunoFrequencia');
-  if(!el) return;
-  const f = calcularFrequencia();
-  if(f.percentual === null){
-    el.innerText = 'sem registros';
-    el.style.color = '';
-    return;
-  }
-  el.innerText = f.percentual.toFixed(1).replace('.', ',') + '% (' +
-    f.presentes + ' presenças, ' + f.faltas + ' faltas)';
-  el.style.color = f.percentual >= 75 ? 'green' : 'crimson';
-}
-
-// clique no dia (só professor): vazio -> presente -> falta -> vazio
-function alternarPresenca(chave){
-  if(perfil !== 'professor') return;
-  const atual = presencas[chave];
-  if(!atual) presencas[chave] = 'P';
-  else if(atual === 'P') presencas[chave] = 'F';
-  else delete presencas[chave];
-  salvarPresencas();
-  desenharCalendario();
-  atualizarFrequencia();
-}
-
-function desenharCalendario(){
-  const grade = document.getElementById('calGrade');
-  const titulo = document.getElementById('calTitulo');
-  if(!grade || !titulo) return;
-
-  const ehProfessor = perfil === 'professor';
-  titulo.innerText = nomesMeses[calMes] + ' ' + calAno;
-  grade.innerHTML = '';
-  grade.classList.toggle('leitura', !ehProfessor);
-
-  const dica = document.querySelector('.calDica');
-  if(dica) dica.style.display = ehProfessor ? 'block' : 'none';
-
-  const primeiroDia = new Date(calAno, calMes, 1).getDay(); // 0 = domingo
-  const diasNoMes = new Date(calAno, calMes + 1, 0).getDate();
-  const hoje = new Date();
-  hoje.setHours(0, 0, 0, 0);
-
-  for(let i = 0; i < primeiroDia; i++){
-    const vazio = document.createElement('div');
-    vazio.className = 'calDia vazio';
-    grade.appendChild(vazio);
-  }
-
-  for(let dia = 1; dia <= diasNoMes; dia++){
-    const data = new Date(calAno, calMes, dia);
-    const chave = chaveData(calAno, calMes, dia);
-    const el = document.createElement('div');
-    el.className = 'calDia';
-    el.innerText = dia;
-
-    const fimDeSemana = data.getDay() === 0 || data.getDay() === 6;
-    const futuro = BLOQUEAR_FUTURO && data > hoje;
-
-    if(fimDeSemana || futuro){
-      el.classList.add('bloqueado');
-    } else {
-      if(presencas[chave] === 'P') el.classList.add('presente');
-      if(presencas[chave] === 'F') el.classList.add('falta');
-      if(ehProfessor) el.onclick = function(){ alternarPresenca(chave); };
-    }
-
-    if(data.getTime() === hoje.getTime()) el.classList.add('hoje');
-    grade.appendChild(el);
-  }
-}
-
-function mudarMes(delta){
-  calMes += delta;
-  if(calMes < 0){ calMes = 11; calAno--; }
-  if(calMes > 11){ calMes = 0; calAno++; }
-  desenharCalendario();
-}
-
-// ===============================
-// LOGIN / CADASTRO
-// ===============================
-
-// ajusta o texto do botão do ALUNO conforme exista ou não senha cadastrada
-function atualizarModoLogin(){
-  const btn = document.querySelector('#meuFormulario button[type="submit"], #meuFormulario input[type="submit"]');
-  const inputSenha = document.getElementById('senha');
-  if(!senhaSalva){
-    if(btn){ if(btn.tagName === 'INPUT') btn.value = 'Cadastrar senha'; else btn.innerText = 'Cadastrar senha'; }
-    if(inputSenha) inputSenha.placeholder = 'Crie sua senha';
-  } else {
-    if(btn){ if(btn.tagName === 'INPUT') btn.value = 'Entrar'; else btn.innerText = 'Entrar'; }
-    if(inputSenha) inputSenha.placeholder = 'Digite sua senha';
-  }
-}
-
-function abrirPortal(){
-  mostrarPagina('paginaPortal');
-  const info = document.getElementById('infoPerfil');
-  if(info) info.innerText = perfil === 'professor' ? 'Acesso: Professor' : 'Acesso: Aluno';
-  carregarBoletim();
-  desenharCalendario();
-  atualizarFrequencia();
-}
-
-function entrarComoAluno(){
-  salvarJSON('alunoPortal', {
-    nome: document.getElementById('nome')?.value.trim() || '',
-    email: document.getElementById('email')?.value.trim() || '',
-    serie: document.getElementById('serie')?.value.trim() || '',
-    matricula: document.getElementById('matricula')?.value.trim() || ''
-  });
-  perfil = 'aluno';
-  abrirPortal();
-}
-
-// ===============================
-// INICIALIZAÇÃO (espera o HTML carregar)
-// ===============================
-document.addEventListener('DOMContentLoaded', function(){
-  mostrarPagina('paginaEscolha');
-  atualizarModoLogin();
-
-  // TELA DE ESCOLHA
-  document.getElementById('btnSouProfessor')?.addEventListener('click', () => mostrarPagina('paginaProfessor'));
-  document.getElementById('btnSouAluno')?.addEventListener('click', () => mostrarPagina('paginaFormulario'));
-  document.querySelectorAll('.btnVoltar').forEach(b => {
-    b.addEventListener('click', () => mostrarPagina('paginaEscolha'));
-  });
-
-  // CALENDÁRIO: setas de mês
-  document.getElementById('calAnterior')?.addEventListener('click', () => mudarMes(-1));
-  document.getElementById('calProximo')?.addEventListener('click', () => mudarMes(1));
-
-  // ---------- ALUNO: LOGIN / CADASTRO ----------
-  document.getElementById('meuFormulario')?.addEventListener('submit', async function(e){
-    e.preventDefault();
-    const senha = document.getElementById('senha')?.value || '';
-    if(!senha) return alert('Informe a senha');
-
-    // primeiro acesso: cadastro da senha
-    if(!senhaSalva){
-      if(senha.length < 4) return alert('A senha precisa ter pelo menos 4 caracteres');
-      const confirmar = prompt('Confirme a senha cadastrada:');
-      if(confirmar === null) return;
-      if(confirmar !== senha) return alert('As senhas não conferem. Tente novamente.');
-
-      senhaSalva = await hashSenha(senha);
-      localStorage.setItem('senhaPortal', senhaSalva);
-      atualizarModoLogin();
-      alert('Senha cadastrada com sucesso! Bem-vindo!');
-      return entrarComoAluno();
-    }
-
-    // acessos seguintes: login
-    if(await hashSenha(senha) !== senhaSalva){
-      return alert('Senha incorreta');
-    }
-    entrarComoAluno();
-  });
-
-  // ALUNO: TROCAR SENHA
-  document.getElementById('btnTrocarSenhaFormulario')?.addEventListener('click', async function(){
-    if(!senhaSalva) return alert('Nenhuma senha cadastrada ainda! Faça o primeiro cadastro.');
-    const atual = prompt('Digite a senha atual:');
-    if(atual === null) return;
-    if(await hashSenha(atual) !== senhaSalva) return alert('Senha incorreta!');
-    const nova = prompt('Digite a nova senha:');
-    if(!nova || nova.trim().length < 4) return alert('Senha inválida (mínimo 4 caracteres)');
-    senhaSalva = await hashSenha(nova);
-    localStorage.setItem('senhaPortal', senhaSalva);
-    alert('Senha alterada com sucesso!');
-  });
-
-  // ---------- PROFESSOR: ENTRAR ----------
-  document.getElementById('formProfessor')?.addEventListener('submit', async function(e){
-    e.preventDefault();
-    const email = (document.getElementById('profEmail')?.value || '').trim().toLowerCase();
-    const senha = document.getElementById('profSenha')?.value || '';
-    if(!email || !senha) return alert('Informe email e senha');
-
-    const professores = lerJSON('professoresPortal', {});
-    if(!professores[email]) return alert('Professor não cadastrado. Clique em "Cadastrar".');
-    if(await hashSenha(senha) !== professores[email]) return alert('Senha incorreta');
-
-    perfil = 'professor';
-    abrirPortal();
-  });
-
-  // ---------- PROFESSOR: CADASTRAR ----------
-  document.getElementById('btnProfCadastrar')?.addEventListener('click', async function(){
-    const email = (document.getElementById('profEmail')?.value || '').trim().toLowerCase();
-    const senha = document.getElementById('profSenha')?.value || '';
-
-    if(!/^\S+@\S+\.\S+$/.test(email)) return alert('Informe um email válido');
-    if(senha.length < 4) return alert('A senha precisa ter pelo menos 4 caracteres');
-
-    const professores = lerJSON('professoresPortal', {});
-    if(professores[email]) return alert('Este email já está cadastrado. Clique em "Entrar".');
-
-    if(CODIGO_PROFESSOR){
-      const codigo = prompt('Digite o código de autorização da escola:');
-      if(codigo === null) return;
-      if(codigo !== CODIGO_PROFESSOR) return alert('Código inválido.');
-    }
-
-    const confirmar = prompt('Confirme a senha:');
-    if(confirmar === null) return;
-    if(confirmar !== senha) return alert('As senhas não conferem. Tente novamente.');
-
-    professores[email] = await hashSenha(senha);
-    salvarJSON('professoresPortal', professores);
-    alert('Professor cadastrado com sucesso! Bem-vindo!');
-    perfil = 'professor';
-    abrirPortal();
-  });
-
-  // ---------- SAIR ----------
-  document.getElementById('btnSair')?.addEventListener('click', function(){
-    perfil = null;
-    ['senha', 'profSenha'].forEach(id => {
-      const el = document.getElementById(id);
-      if(el) el.value = '';
-    });
-    mostrarPagina('paginaEscolha');
-  });
-});
-
-</script>
-
+<script src="portal.js"></script>
 </body>
 </html>
+
